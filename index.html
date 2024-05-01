@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SBA_DOM</title>
+    <title>SBA-DOM</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="">
+    <script defer src="index.js"></script>
 </head>
 
 <body>
@@ -14,14 +17,15 @@
         <form id="form" action="">
             <input type="text" name="name" id="nameInput" placeholder="Enter Your Name">
             <span class="input-icon"><i class="fa-solid fa-user"></i></span><br />
+            
             <input type="email" name="email" id="email" placeholder="Enter Your email" />
             <span class="input-icon"><i class="fa-solid fa-key"></i></span><br />
-            <textarea name="adress" id="address" cols="30" rows="10" placeholder=" Delivery address"></textarea>
+            
+            <textarea name="address" id="address" cols="30" rows="10" placeholder=" Delivery address"></textarea>
             <span class="input-icon"><i class="fa-solid fa-key"></i></span><br /><br />
             <button type="submit"> Place Order</button>
-
-
         </form>
+        <div id="cart" class="cart"></div>
     </div>
 </body>
 
