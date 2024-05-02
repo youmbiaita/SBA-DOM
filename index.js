@@ -10,23 +10,25 @@ const cart = document.getElementById("cart");
 //Menu sample
 const menuSample = [
     {
-        menu1: "Ndole Missole",
-        price: 30
+        foodName: "Ndole Missole",
+        price: 30,
+        imageUrl:"images/menu.jpg"
+
     },
     {
-        menu2: "Grilled Fish",
+        foodName: "Grilled Fish",
         price: 25
     },
     {
-        menu3: "WaterFufu and Eru",
+        foodName: "WaterFufu and Eru",
         price: 30
     },
     {
-        menu3: "Puff puff and beans",
+        foodName: "Puff puff and beans",
         price: 15
     },
     {
-        menu5: "koki",
+        foodName: "koki",
         price: 20
     },
 
