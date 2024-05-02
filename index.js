@@ -6,6 +6,7 @@ const userName = document.getElementById("name")
 const email = document.getElementById("email");
 const address = document.getElementById("address");
 const cart = document.getElementById("cart");
+const food = document.getElementById("food")
 
 //Menu sample
 const menuSample = [
@@ -33,6 +34,10 @@ const menuSample = [
     },
 
 ];
+
+menuSample.forEach(f => {
+    
+})
 
 function openMenu () {
     menuSample.forEach(m => {
@@ -69,4 +74,6 @@ form.addEventListener("submit", (evt) => {
         alert("Order placed succeffully!")
     }
 })
+
+
 
