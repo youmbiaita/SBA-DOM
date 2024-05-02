@@ -1,4 +1,13 @@
 console.log("restaurant")
+//Menu sample
+const menuSample = [
+    {foodName: "Ndole Missole", price: 30, imageUrl:"images/ndole.jpeg"},
+    {foodName: "Grilled Fish", price: 25, imageUrl: "images/fish2.jpeg"},
+    {foodName: "WaterFufu and Eru", price: 30, imageUrl: "images/eru.jpeg"},
+    {foodName: "Puff puff and beans", price: 15, imageUrl: "images/puff.jpg"},
+    {foodName: "koki", price: 20, imageUrl: "images/koki.jpg"},
+
+];
 // define Variables
 const menu = document.getElementById("menu");
 const form = document.getElementById("form");
@@ -7,37 +16,18 @@ const email = document.getElementById("email");
 const address = document.getElementById("address");
 const cart = document.getElementById("cart");
 const food = document.getElementById("food")
+const foodElement = document.createElement("div")
+const foodList = document.createElement("ul")
+foodElement.appendChild(foodList);
 
-//Menu sample
-const menuSample = [
-    {
-        foodName: "Ndole Missole",
-        price: 30,
-        imageUrl:"images/menu.jpg"
 
-    },
-    {
-        foodName: "Grilled Fish",
-        price: 25
-    },
-    {
-        foodName: "WaterFufu and Eru",
-        price: 30
-    },
-    {
-        foodName: "Puff puff and beans",
-        price: 15
-    },
-    {
-        foodName: "koki",
-        price: 20
-    },
 
-];
 
-menuSample.forEach(f => {
-    
-})
+for ( let i = 0; i < menuSample.length; i++) {
+    menuList = document.createElement("li");
+    menuList.foodName = menuSample[i].foodName;
+
+}
 
 function openMenu () {
     menuSample.forEach(m => {
