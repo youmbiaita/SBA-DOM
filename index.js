@@ -90,7 +90,6 @@ function createMenu () {
         img.src = link.imageUrl;
         img.style.width = "200px";
         img.style.height = "200px";
-
         main.appendChild(img);
         const price = document.createElement("h5");
         price.innerHTML = "$" + link.price;
