@@ -1,5 +1,6 @@
 window.onload = (evt) => {
     createMenu();
+    resizeSubmitButton ();
 }
 //Menu sample
 const menuSample = [
@@ -13,7 +14,7 @@ const menuSample = [
 // define Variables
 const menu = document.getElementById("menu");
 const form = document.getElementById("form");
-const userName = document.getElementById("name")
+const userName = document.getElementById("nameInput");
 const email = document.getElementById("email");
 const address = document.getElementById("address");
 const cart = document.getElementById("cart");
@@ -25,43 +26,44 @@ let message = [];
 function validateName () {
     // Check if the name is not blank
     if (userName.value.trim() === "" || userName.value === null){
-        message.push("Your name is required")
+        message.push("Your name is required");
     }
 
      //  // Check if the username contains any special characters or whitespace
-     if (!/^[a-zA-Z0-9]+$/.test(userName.value)) {
-        message.push("Your name cannot contain any special characters or whitespace.");
+     if (!/^[a-zA-Z0-9]/.test(userName.value)) {
+        message.push("Your name cannot contain any special characters.");
     }
 }
 
 //Function to validate the email
-// function validateEmail() {
-//     // Check if the email is not blank
-//     if (email.value.trim() === "") {
-//         message.push("Email can not be blank.");
-//     }
+function validateEmail() {
+    // Check if the email is not blank
+    if (email.value.trim() === "") {
+        message.push("Email can not be blank.");
+    }
 
-//     // Check if the email is a valid email address
-//     if (!/^\S+@\S+\.\S+$/.test(email.value)) {
-//         message.push("Invalid email address.");
-//     }
+    // Check if the email is a valid email address
+    if (!/^\S+@\S+\.\S+$/.test(email.value)) {
+        message.push("Invalid email address.");
+    }
 
-//     // Check if the email is from the domain "example.com"
-//     if (email.value.toLowerCase().endsWith('@example.com')) {
-//         message.push("Emails from example.com are not allowed.");
-//     }
-// }
+    // Check if the email is from the domain "example.com"
+    if (email.value.toLowerCase().endsWith('@example.com')) {
+        message.push("Emails from example.com are not allowed.");
+    }
+}
 
-// function validateAddress () {
-//     if(",#-/ !@$%^*(){}|[]\\".indexOf() >= 0) {
-//         message.push("Invalid address");
-//     }
-// }
+// function to validate address
+function validateAddress () {
+    if(",#-/ !@$%^*(){}|[]\\".indexOf() >= 0) {
+        message.push("Invalid address");
+    }
+}
 
 form.addEventListener("submit", (e) => {
-    validateName(); 
+    validateName();  
     validateEmail(); 
-    validateAddress();  
+    validateAddress();
      if (message.length > 0) {
         e.preventDefault();
         errorDisplay.style.display = "block";
@@ -88,6 +90,7 @@ function createMenu () {
         img.src = link.imageUrl;
         img.style.width = "200px";
         img.style.height = "200px";
+
         main.appendChild(img);
         const price = document.createElement("h5");
         price.innerHTML = "$" + link.price;
@@ -98,7 +101,15 @@ function createMenu () {
         main.appendChild(input);    
         food.appendChild(main);
     })
-    
+}
+
+function resizeSubmitButton () {
+    const submitBtn = form.lastElementChild;
+    console.log(submitBtn);
+    submitBtn.style.color = "white";
+    submitBtn.style.background = "rgba(16, 159, 248, 0.798)";
+    submitBtn.style.width = "200px";
+    submitBtn.style.margin = "auto";
     
 }
 

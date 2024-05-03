@@ -1,20 +1,59 @@
 body {
-  background-color: aliceblue;
+  background-color: rgba(191, 224, 244, 0.599);
     font-family: Arial, sans-serif;
   }
+  /* Add a black background color to the top navigation */
+.topnav {
+  background-color: rgba(52, 95, 122, 0.599);
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: rgba(16, 159, 248, 0.798);
+  color: white;
+}
+
+h1 {
+  color: rgba(16, 159, 248, 0.798);
+  text-align: center;
+}
   
   #container {
-    color: bisque;
+    
     max-width: 600px;
     margin: 0 auto;
    
   }
   
-  #menu-item {
-    margin-bottom: 10px;
+  #form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
-  
-  #cart-item {
+
+  #form input {
+    height: 30px;
+  }
+  #cart {
     margin-bottom: 5px;
   }
 
@@ -36,9 +75,9 @@ body {
   background: #fcc;
   color: red;
   display: flex;
-  width: 500px;
+  width: 400px;
   left: 50%;
-  top: calc(50% + 180px);
+  top: calc(1% + 5px);
   transform: translate(-50%, 0%);
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
   user-select: none;

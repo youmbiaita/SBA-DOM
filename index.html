@@ -6,30 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SBA-DOM</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="">
     <script defer src="index.js"></script>
 </head>
 
 <body>
+    <div id="menu" class="menu"></div>
+    <div id="errorDisplay"></div>
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a class="active" href="#cart">Cart(s)</a>
+      </div>
     <div id="container">
         <h1>Simple restaurant</h1>
-        <div id=" menu" class="menu"></div>
-        <form id="form" action="">
-            <input type="text" name="name" id="nameInput" placeholder="Enter Your Name">
-            <span class="input-icon"><i class="fa-solid fa-user"></i></span><br />
-            
-            <input type="email" name="email" id="email" placeholder="Enter Your email" />
-            <span class="input-icon"><i class="fa-solid fa-key"></i></span><br />
-            
+        <form id="form" action="#">
+            <input type="text" name="name" id="nameInput" placeholder="Enter Your Name">        
+            <input type="email" name="email" id="email" placeholder="Enter Your email" />            
             <textarea name="address" id="address" cols="30" rows="10" placeholder=" Delivery address"></textarea>
-            <span class="input-icon"><i class="fa-solid fa-key"></i></span><br /><br />
-            <button type="submit"> Place Order</button>
+            <input type="submit" value="Add to Cart" />
         </form>
         <div id="cart" class="cart"></div>
     </div>
    <div id="food"></div>
-     <!-- Error Display Container -->
-     <div id="errorDisplay"></div>
 </body>
 
 </html>
