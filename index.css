@@ -3,17 +3,45 @@ body {
     font-family: Arial, sans-serif;
   }
   
-  .container {
+  #container {
     color: bisque;
     max-width: 600px;
     margin: 0 auto;
    
   }
   
-  .menu-item {
+  #menu-item {
     margin-bottom: 10px;
   }
   
-  .cart-item {
+  #cart-item {
     margin-bottom: 5px;
   }
+
+  #food {
+    display: flex;
+    justify-content: space-between;
+  }
+
+#food div {
+ text-align: center;
+}
+
+#food div input {
+  width: 50px;
+}
+
+#errorDisplay {
+  position: absolute;
+  background: #fcc;
+  color: red;
+  display: flex;
+  width: 500px;
+  left: 50%;
+  top: calc(50% + 180px);
+  transform: translate(-50%, 0%);
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+  user-select: none;
+  padding: 20px;
+  display: none;
+}
