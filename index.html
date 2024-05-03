@@ -13,8 +13,8 @@
     <div id="menu" class="menu"></div>
     <div id="errorDisplay"></div>
     <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a class="active" href="#cart">Cart(s)</a>
+        <a id="homeNav" class="active" href="#home">Home</a>
+        <a id="cartNav" href="#cart">Cart(s)</a>
       </div>
     <div id="container">
         <h1>Simple restaurant</h1>
@@ -24,7 +24,10 @@
             <textarea name="address" id="address" cols="30" rows="10" placeholder=" Delivery address"></textarea>
             <input type="submit" value="Add to Cart" />
         </form>
-        <div id="cart" class="cart"></div>
+        <div id="cart" class="cart">
+            <div id="currentOrder"></div>
+            <button id="btnPlaceOrder"> Place order</button>
+        </div>
     </div>
    <div id="food"></div>
 </body>

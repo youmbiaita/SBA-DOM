@@ -75,6 +75,10 @@ h1:hover {
   width: 50px;
 }
 
+#cart {
+  display: none;
+}
+
 #errorDisplay {
   position: absolute;
   background: #fcc;

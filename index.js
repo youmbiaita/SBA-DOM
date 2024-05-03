@@ -19,6 +19,10 @@ const email = document.getElementById("email");
 const address = document.getElementById("address");
 const cart = document.getElementById("cart");
 const food = document.getElementById("food");
+const homeNav = document.getElementById("homeNav");
+const cartNav = document.getElementById("cartNav");
+const btnPlaceOrder = document.getElementById("btnPlaceOrder");
+
 const errorDisplay = document.getElementById('errorDisplay');
 let message = [];
 
@@ -75,7 +79,8 @@ form.addEventListener("submit", (e) => {
         errorDisplay.style.display = "block";
         errorDisplay.style.color = "green";
         errorDisplay.style.background = "#98fb98";
-        errorDisplay.innerHTML = "Your Order has been placed!";
+        errorDisplay.innerHTML = "Your Order has been added to the cart!";
+        addToCart();
      }
      message = [];
 })
@@ -112,27 +117,24 @@ function resizeSubmitButton () {
     
 }
 
-// function addToCart () {
-//     const cartItem = document.createElement("div")
-//     cartItem.classList.add("cart-menu");
-//     cartItem.innerHTML = `
-//     <span>${item.name}</span>
-//     <span>$${item.price.toFixed(2)}</span>
-//     <button onclick="removeFromCart(${itemId})">Remove</button>
-//   `;
-//   cart.appendChild(cartItem);
-// }
+function addToCart () {
+    cartNav.classList.add("active");
+    homeNav.classList.remove("active");
+    cart.style.display = "block";
+    form.style.display = "none";
+    food.style.display = "none";
+}
 
-// form.addEventListener("submit", (evt) => {
-//     evt.defaultPrevented();
-//     openMenu();
-//     addToCart();
-//     if (userName.value = "" || email.value === "") {
-//         alert("Please fill in all fields.")
-//     }else {
-//         alert("Order placed succeffully!")
-//     }
-// })
+btnPlaceOrder.addEventListener("click", (evt) => {
+    cartNav.classList.remove("active");
+    homeNav.classList.add("active");
+    form.style.display = "flex";
+    food.style.display = "flex";
+    cart.style.display = "none";
+})
+
+const currentOrder = document.getElementById("currentOrder");
+
 
 
 
