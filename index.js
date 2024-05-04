@@ -69,6 +69,7 @@ form.addEventListener("submit", (e) => {
     validateName();  
     validateEmail(); 
     validateAddress();
+    addToCart();
      if (message.length > 0) {
         e.preventDefault();
         errorDisplay.style.display = "block";
@@ -81,7 +82,6 @@ form.addEventListener("submit", (e) => {
         errorDisplay.style.color = "green";
         errorDisplay.style.background = "#98fb98";
         errorDisplay.innerHTML = "Your Order has been added to the cart!";
-        addToCart();
      }
      message = [];
 })
@@ -97,6 +97,8 @@ function createMenu () {
         img.src = link.imageUrl;
         img.style.width = "200px";
         img.style.height = "200px";
+        img.style.animationName = "transform";
+        img.style.animationDuration = "4s";
         main.appendChild(img);
         const price = document.createElement("h5");
         price.innerHTML = "$" + link.price;
@@ -122,20 +124,19 @@ function resizeSubmitButton () {
 
 //function add menu in the cart using classlist, style, querySelectorAll, firstChild, cloneNode
 function addToCart () {
+    let total = 0;
+    const inputs = document.querySelectorAll("input");
+    const inputNumbers = Array.from(inputs).filter(item => item.type == "number" && parseInt(item.value) > 0);
+    if(inputNumbers.length === 0) {
+        message.push("Please select an food!");
+        return;
+    }
     const currentOrder = document.getElementById("currentOrder");
-    cartNav.classList.add("active");
-    homeNav.classList.remove("active");
-    cart.style.display = "block";
-    form.style.display = "none";
-    food.style.display = "none";
     const paragraph = document.createElement("p");
     paragraph.innerHTML = `<div>Name: ${userName.value} <br>
                             Email: ${email.value} <br>
                             Address: ${address.value}</div>`;
     currentOrder.appendChild(paragraph);
-    let total = 0;
-    const inputs = document.querySelectorAll("input");
-    const inputNumbers = Array.from(inputs).filter(item => item.type == "number" && parseInt(item.value) > 0);
     inputNumbers.forEach(item => {
         currentOrder.appendChild(item.parentElement);
         const h5 = document.createElement("h5");
@@ -158,7 +159,11 @@ function addToCart () {
    const note = document.getElementById("note");
    const clone = note.cloneNode(true);
    currentOrder.appendChild(clone);
-   
+   cartNav.classList.add("active");
+    homeNav.classList.remove("active");
+    cart.style.display = "block";
+    form.style.display = "none";
+    food.style.display = "none";
 }
 
 btnPlaceOrder.addEventListener("click", (evt) => {
