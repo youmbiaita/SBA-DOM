@@ -1,3 +1,4 @@
+// Using BOM method
 window.onload = (evt) => {
     createMenu();
     resizeSubmitButton ();
@@ -11,7 +12,7 @@ const menuSample = [
     {foodName: "koki", price: 20, imageUrl: "images/koki.png"}
 ];
 
-// define Variables
+// define Variables using selectElementById.
 const menu = document.getElementById("menu");
 const form = document.getElementById("form");
 const userName = document.getElementById("nameInput");
@@ -26,7 +27,7 @@ const btnPlaceOrder = document.getElementById("btnPlaceOrder");
 const errorDisplay = document.getElementById('errorDisplay');
 let message = [];
 
-
+//function to validate the name
 function validateName () {
     // Check if the name is not blank
     if (userName.value.trim() === "" || userName.value === null){
@@ -63,7 +64,7 @@ function validateAddress () {
         message.push("Invalid address");
     }
 }
-
+// use addEventListener for to submit button using innerHTMl, 
 form.addEventListener("submit", (e) => {
     validateName();  
     validateEmail(); 
@@ -85,6 +86,7 @@ form.addEventListener("submit", (e) => {
      message = [];
 })
 
+// Create a menu in your list using createElement, appendChild, 
 function createMenu () {
     menuSample.forEach(link => {
         const main = document.createElement("div");
@@ -107,6 +109,7 @@ function createMenu () {
     })
 }
 
+//function to resize the submit button using lastElementChild
 function resizeSubmitButton () {
     const submitBtn = form.lastElementChild;
     console.log(submitBtn);
@@ -117,23 +120,53 @@ function resizeSubmitButton () {
     
 }
 
+//function add menu in the cart using classlist, style, querySelectorAll, firstChild, cloneNode
 function addToCart () {
+    const currentOrder = document.getElementById("currentOrder");
     cartNav.classList.add("active");
     homeNav.classList.remove("active");
     cart.style.display = "block";
     form.style.display = "none";
     food.style.display = "none";
+    const paragraph = document.createElement("p");
+    paragraph.innerHTML = `<div>Name: ${userName.value} <br>
+                            Email: ${email.value} <br>
+                            Address: ${address.value}</div>`;
+    currentOrder.appendChild(paragraph);
+    let total = 0;
+    const inputs = document.querySelectorAll("input");
+    const inputNumbers = Array.from(inputs).filter(item => item.type == "number" && parseInt(item.value) > 0);
+    inputNumbers.forEach(item => {
+        currentOrder.appendChild(item.parentElement);
+        const h5 = document.createElement("h5");
+        let currentPrice = 0;
+        for(let link of menuSample) {
+            if (item.parentElement.firstChild.textContent === link.foodName) {
+                currentPrice = parseInt(link.price);
+                break;
+            }
+        }
+        const subTotal = parseInt(item.value) * currentPrice;
+        total += subTotal;
+        h5.innerHTML = "Sub Total: $" + currentPrice + " X " + item.value + " = $" + subTotal;
+        item.parentElement.removeChild(item.parentElement.lastElementChild);
+        currentOrder.appendChild(h5);
+   })
+   const h4 = document.createElement("h4");
+   h4.innerText = "Total: $" + total;
+   currentOrder.appendChild(h4);
+   const note = document.getElementById("note");
+   const clone = note.cloneNode(true);
+   cart.appendChild(clone);
+   
 }
 
 btnPlaceOrder.addEventListener("click", (evt) => {
-    cartNav.classList.remove("active");
-    homeNav.classList.add("active");
-    form.style.display = "flex";
-    food.style.display = "flex";
-    cart.style.display = "none";
+    evt.preventDefault();
+    location.reload();
 })
 
-const currentOrder = document.getElementById("currentOrder");
+
 
 
 
