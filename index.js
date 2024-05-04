@@ -157,7 +157,7 @@ function addToCart () {
    currentOrder.appendChild(h4);
    const note = document.getElementById("note");
    const clone = note.cloneNode(true);
-   cart.appendChild(clone);
+   currentOrder.appendChild(clone);
    
 }
 
